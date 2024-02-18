@@ -3,6 +3,8 @@
 ## Overview
 This Oracle-based solution schedules batch jobs for pushing delta batches, simulating upserts. It's designed for scenarios where transformations are done server-side, pushing only essential CSV data to data warehouses.
 
+![image](https://github.com/dubaisolve/oracle_push_ETL_merge_onsite/assets/130452748/721493c2-d750-4e4a-8e16-ca05491fbd99)
+
 ## Features
 - **Delta Batch Processing**: Efficiently processes only the changed rows.
 - **Server-Side Transformation**: Reduces the complexity of data pushed out.
