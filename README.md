@@ -27,7 +27,7 @@ This Oracle-based solution schedules batch jobs for pushing delta batches, simul
 4. **Log Management**: Generate logs for exported data.
 
 ## Demo
-[Demo Video Link](#) - Video demonstration of the setup and execution.
+[Demo Video Link](#) - Video demonstration of the setup and execution. - https://youtu.be/5AJbZExEN50
 
 ## Code Snippet
 ```sql
