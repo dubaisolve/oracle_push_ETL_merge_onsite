@@ -39,4 +39,22 @@ BEGIN
   -- [Procedure logic...]
 END merge_export_all;
 
-## 
+## MORE in-depth description :
+
+- This repository presents a method for scheduling batch jobs in Oracle databases, emphasizing on efficiently handling delta batches (upserts). The core functionality involves pushing batch files containing only the rows that have changed since the last run. This approach is particularly advantageous in scenarios where on-server data transformation is preferred, ensuring that only the necessary data is extracted and sent in CSV format.
+
+- The solution requires setting up a pagefile and allocating adequate storage on the server. All data transformations are executed on the server, reducing the need for external processing and simplifying the data pushed out. This method is especially beneficial for cases where there is a ready-to-use model in the data warehouse, allowing for direct merging without additional data manipulation. On-the-fly transformations become a streamlined process.
+
+  -- Key aspects of the solution include:
+
+- DDL Creation: Establishing the required database schema for the tables intended for batch processing.
+Merge Procedures: Developing specific procedures for each table to manage the merging of data from source to destination tables, ensuring that only necessary changes are applied.
+Loading Package and Order Management: Implementing a set of procedures within a CSV package to organize the loading sequence of data. This order is critical to maintain the integrity of relationships between master and fact tables. The solution includes a 'loading order' table that dictates this sequence, ensuring a smooth and error-free data integration process.
+Upon execution, the merge_export_all procedure initiates the process, checking the list of tables for merging. Post-merging, it triggers the CSV package, which then selects and exports only the marked rows based on a 'flag' timestamp column in the destination tables. The process also generates a log file for each batch, providing a detailed record of the operations and changes made.
+
+  -- While the solution is designed to minimize risks and is particularly useful where direct server connections are not feasible, it requires specific permissions and setups:
+
+- Schema grants for writing to the designated storage (tablespace).
+- Scheduled rights and execution permissions for the procedures.
+- Permissions to write to the storage of the operating system where the Oracle system resides.
+  -- Initially developed in a non-production environment, this solution has been successfully deployed in production settings, proving its efficacy and reliability over several years. It represents a robust and secure method for managing data upserts in Oracle databases, catering to environments with stringent security and connectivity constraints.
