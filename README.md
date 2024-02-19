@@ -31,8 +31,8 @@ This Oracle-based solution schedules batch jobs for pushing delta batches, simul
 ## Demo
 [Demo Video Link] - https://youtu.be/5AJbZExEN50  - Video demonstration of the setup and execution. - 
 
-## Code Snippet
-```sql
+## Snippet
+
 CREATE OR REPLACE PROCEDURE BI_TRAVELBOX_USER."MERGE_EXPORT_ALL" AS
   -- [Procedure details...]
 BEGIN
