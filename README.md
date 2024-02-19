@@ -1,4 +1,4 @@
-# Oracle Batch Job Scheduler for Data Upserts
+# Oracle Push ETL Solution with Batch Merge All ( delta rows only) to CSV files
 
 ## Overview
 This Oracle-based solution schedules batch jobs for pushing delta batches, simulating upserts. It's designed for scenarios where transformations are done server-side, pushing only essential CSV data to data warehouses.
